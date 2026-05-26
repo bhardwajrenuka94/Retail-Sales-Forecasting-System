@@ -8,15 +8,7 @@
 > **Forecast monthly sales for 52 retail stores using 3 models — best model auto-selected per store.**  
 > Compare actuals vs predicted, monitor 6-month forecasts, analyse category trends.
 
-🔗 **[Live App →](https://YOUR_STREAMLIT_URL)**
-
----
-
-## 📸 App Preview
-
-> *(Add a screenshot here after deployment — drag and drop image into GitHub)*
-
----
+🔗 **[Live App →](https://retail-sales-forecasting-system-c34cs9qjutxahxcsaucgky.streamlit.app/)**
 
 ## 🎯 Problem Statement
 
@@ -99,7 +91,7 @@ retail-forecast/
 
 ```bash
 # 1. Clone repo
-git clone https://github.com/YOUR_USERNAME/retail-forecast.git
+git clone https://github.com/Ybhardwajrenuka94/retail-forecast.git
 cd retail-forecast
 
 # 2. Install dependencies
@@ -132,7 +124,7 @@ git commit -m "Retail Sales Forecasting System"
 git push
 ```
 
-Then: [share.streamlit.io](https://share.streamlit.io) → New App → `app.py` → Deploy ✅
+Then: [share.streamlit.io](https://retail-sales-forecasting-system-c34cs9qjutxahxcsaucgky.streamlit.app/) → New App → `app.py` → Deploy ✅
 
 ---
 
