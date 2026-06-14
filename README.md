@@ -2,13 +2,15 @@
 
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://YOUR_STREAMLIT_URL)
 ![Python](https://img.shields.io/badge/Python-3.10-blue?logo=python)
-![Prophet](https://img.shields.io/badge/Prophet-1.1.5-blue)
+![Prophet](https://img.shields.io/badge/Prophet-1.1-orange)
 ![Status](https://img.shields.io/badge/Status-Live-brightgreen)
 
-> **Forecast monthly sales for 52 retail stores using 3 models — best model auto-selected per store.**  
+> **Forecast monthly sales for 52 retail stores using 3 models — best model auto-selected per store.**
 > Compare actuals vs predicted, monitor 6-month forecasts, analyse category trends.
 
-🔗 **[Live App →](https://retail-sales-forecasting-system-c34cs9qjutxahxcsaucgky.streamlit.app/)**
+🔗 **[Live App →](https://YOUR_STREAMLIT_URL)**
+
+---
 
 ## 🎯 Problem Statement
 
@@ -20,12 +22,15 @@
 
 | Metric | Value |
 |--------|-------|
-| Records | 100,000+ daily |
+| Records | 380,000+ daily |
 | Stores | 52 |
 | Categories | 5 |
 | Models Benchmarked | 3 (HW, SARIMA, Prophet) |
 | Holdout Period | 12 months |
-| **Overall MAPE** | **~3%** |
+| **Overall MAPE** | **~3.3%** |
+| Holt-Winters Wins | 39 stores |
+| SARIMA Wins | 11 stores |
+| Prophet Wins | 2 stores |
 | Deployment | Streamlit Cloud |
 
 ---
@@ -33,17 +38,17 @@
 ## 🧠 Technical Approach
 
 ### Data
-- 100,000+ daily sales records across 52 stores, 5 product categories (Electronics, Clothing, Grocery, Home & Kitchen, Sports)
+- **380,000+ daily sales records** across 52 stores, 5 product categories (Electronics, Clothing, Grocery, Home & Kitchen, Sports)
 - Date range: Jan 2021 – Dec 2024
-- Aggregated to **monthly level** for modeling — weekly aggregation avoided due to SARIMA instability at `seasonal_period=52`
+- Aggregated to monthly level for modeling — weekly aggregation avoided due to SARIMA instability at seasonal_period=52
 
 ### Models Benchmarked
 
 | Model | Best For |
 |-------|----------|
-| **Holt-Winters** | Stores with stable, smooth monthly seasonality |
-| **SARIMA(1,1,1)(1,1,0)[12]** | Stores with complex autocorrelation structures |
-| **Facebook Prophet** | Stores with holiday effects and trend changepoints |
+| Holt-Winters | Stores with stable, smooth monthly seasonality |
+| SARIMA(1,1,1)(1,1,0)[12] | Stores with complex autocorrelation structures |
+| Facebook Prophet | Stores with holiday effects and trend changepoints |
 
 ### Selection Strategy
 - Each model trained on store-level monthly series
@@ -52,9 +57,9 @@
 - 6-month forward forecast generated using best model
 
 ### Key Design Decisions
-- Monthly aggregation over weekly → `seasonal_period=12` is stable vs `seasonal_period=52`
+- Monthly aggregation over weekly → seasonal_period=12 is stable vs seasonal_period=52
 - Damped trend in Holt-Winters → prevents over-forecasting in long-horizon predictions
-- Prophet with `seasonality_mode='multiplicative'` → handles festival spikes (Diwali, Dec) better
+- Prophet with seasonality_mode='multiplicative' → handles festival spikes (Diwali, Dec) better
 - MAPE as evaluation metric → scale-independent, comparable across stores of different sizes
 
 ---
@@ -91,7 +96,7 @@ retail-forecast/
 
 ```bash
 # 1. Clone repo
-git clone https://github.com/Ybhardwajrenuka94/retail-forecast.git
+git clone https://github.com/bhardwajrenuka94/retail-forecast.git
 cd retail-forecast
 
 # 2. Install dependencies
@@ -111,7 +116,7 @@ streamlit run app.py
 
 ## ☁️ Deploy on Streamlit Cloud
 
-> **Important:** Generate CSVs locally first — Streamlit Cloud does not run Python scripts automatically.
+**Important:** Generate CSVs locally first — Streamlit Cloud does not run Python scripts automatically.
 
 ```bash
 # Generate all files locally first
@@ -124,14 +129,14 @@ git commit -m "Retail Sales Forecasting System"
 git push
 ```
 
-Then: [share.streamlit.io](https://retail-sales-forecasting-system-c34cs9qjutxahxcsaucgky.streamlit.app/) → New App → `app.py` → Deploy ✅
+Then: share.streamlit.io → New App → app.py → Deploy ✅
 
 ---
 
 ## 💡 Business Impact
 
-> Manual forecasting across 52 stores was replaced with a fully automated pipeline.  
-> MAPE ~3% means for every ₹100 in predicted sales, error is only ₹3 — reliable enough for procurement, staffing, and inventory planning.  
+> Manual forecasting across 52 stores was replaced with a fully automated pipeline.
+> MAPE ~3.3% means for every ₹100 in predicted sales, error is only ₹3.30 — reliable enough for procurement, staffing, and inventory planning.
 > Estimated 60%+ reduction in forecasting error vs naive (same-month-last-year) baseline.
 
 ---
@@ -144,6 +149,6 @@ Then: [share.streamlit.io](https://retail-sales-forecasting-system-c34cs9qjutxah
 
 ## 👩‍💻 Built By
 
-**Renuka Bhardwaj**  
-Data Scientist | AnalytixLabs Certified | Karnal, Haryana  
+**Renuka Bhardwaj**
+Data Scientist | AnalytixLabs Certified | Bengaluru
 🔗 [LinkedIn](https://linkedin.com/in/renuka-bhardwaj-9b93b62a7) · [GitHub](https://github.com/bhardwajrenuka94)
