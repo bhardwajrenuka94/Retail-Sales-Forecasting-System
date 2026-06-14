@@ -8,7 +8,7 @@
 > **Forecast monthly sales for 52 retail stores using 3 models — best model auto-selected per store.**
 > Compare actuals vs predicted, monitor 6-month forecasts, analyse category trends.
 
-🔗 **[Live App →](https://YOUR_STREAMLIT_URL)**
+🔗 **[Live App →](https://retail-sales-forecasting-system-c34cs9qjutxahxcsaucgky.streamlit.app/)**
 
 ---
 
